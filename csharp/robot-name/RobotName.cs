@@ -1,17 +1,29 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 public class Robot
 {
-    public string Name
+    private static readonly Random random = new Random();
+    private static readonly HashSet<string> names = new HashSet<string>();
+
+    public string Name { get; private set; }
+
+    public Robot() => assignName();
+
+    public void Reset() => assignName();
+
+    private void assignName()
     {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
+        string robotName;
+        do { robotName = generateName(); } while (names.Contains(robotName));
+        names.Add(robotName);
+        this.Name = robotName;
     }
 
-    public void Reset()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    private string generateName() =>
+        $"{randomLetter()}{randomLetter()}{random.Next(0, 1000):d03}";
+
+    private char randomLetter() => (char)random.Next('A', 'Z' + 1);
+
 }
