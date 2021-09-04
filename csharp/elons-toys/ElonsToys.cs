@@ -2,23 +2,31 @@ using System;
 
 class RemoteControlCar
 {
-    public static RemoteControlCar Buy()
-    {
-        throw new NotImplementedException("Please implement the (static) RemoteControlCar.Buy() method");
-    }
+    private int metersDriven = 0;
+    private int batteryPercentage = 100;
+    public static RemoteControlCar Buy() => new RemoteControlCar();
 
     public string DistanceDisplay()
     {
-        throw new NotImplementedException("Please implement the RemoteControlCar.DistanceDisplay() method");
+        if (metersDriven > 2000)
+            return "Driven 2000 meters";
+        else
+            return $"Driven {metersDriven} meters";
     }
 
     public string BatteryDisplay()
     {
-        throw new NotImplementedException("Please implement the RemoteControlCar.BatteryDisplay() method");
+
+        if (batteryPercentage <= 0)
+            return "Battery empty";
+        else
+            return $"Battery at {batteryPercentage}%";
     }
 
     public void Drive()
     {
-        throw new NotImplementedException("Please implement the RemoteControlCar.Drive() method");
+        metersDriven += 20;
+        batteryPercentage -= 1;
+
     }
 }
