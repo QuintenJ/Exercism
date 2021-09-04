@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 public class Robot
 {
@@ -25,5 +24,4 @@ public class Robot
         $"{randomLetter()}{randomLetter()}{random.Next(0, 1000):d03}";
 
     private char randomLetter() => (char)random.Next('A', 'Z' + 1);
-
 }
