@@ -8,7 +8,7 @@ static class AssemblyLine
         {
             return speed * 221.0;
         }
-        else if (speed > 5 && speed <= 7)
+        else if (speed >= 5 && speed <= 8)
         {
             return speed * 198.9;
         }
@@ -27,25 +27,7 @@ static class AssemblyLine
 
     public static int WorkingItemsPerMinute(int speed)
     {
-        if (speed >= 1 && speed <= 4)
-        {
-            return (speed * 221) / 60;
-        }
-        else if (speed >= 5 && speed <= 8)
-        {
-            return (speed * 199) / 60;
-        }
-        else if (speed == 9)
-        {
-            return speed * 177 / 60;
-        }
-        else if (speed == 10)
-        {
-            return speed * 170 / 60;
-        }
-        {
-            return speed * 0;
-        }
+        return (int)ProductionRatePerHour(speed) / 60;
     }
 }
 
