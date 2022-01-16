@@ -2,7 +2,7 @@ using Xunit;
 using Exercism.Tests;
 
 public class WizardsAndWarriorsTests
-{
+{   
     [Fact]
     [Task(1)]
     public void Describe_wizard()
